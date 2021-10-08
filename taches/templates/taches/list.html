@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h3>User Task </h3>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{form1}}
+        <input id="sub" class="btn btn-primary" type="submit" name="creer tache">
+        
+    </form>
+
+{%for tache in taches%}
+
+<div class="main">
+    
+    <a class="btn btn-primary" href="{% url 'modifier' tache.id %}">Modifier</a>
+    <a class="btn btn-danger" href="{% url 'supprimer' tache.id %}">Supprimer</a>
+    <h3>{{tache}}</h3>
+   
+</div>
+
+{%endfor%}
+</body>
+</html>
+
